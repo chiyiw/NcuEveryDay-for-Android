@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "com.wangpeng.ncueveryday"
+        minSdkVersion 13
+        targetSdkVersion 14
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile project(':imageLoaderlibrary')
+    compile project(':library')
+    compile project(':slidingMenu')
+    compile 'com.android.support:support-v4:19.1.0'
+    compile files('libs/android-async-http-1.4.6.jar')
+    compile files('libs/juhe_sdk_v_2_5.jar')
+    compile files('libs/YoumiSdk_v5.00_2015-01-08.jar')
+}

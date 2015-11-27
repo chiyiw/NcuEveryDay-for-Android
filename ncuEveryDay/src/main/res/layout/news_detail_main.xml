@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#f8f8f8">
+
+    <TextView
+        android:id="@+id/vi_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="文章标题"
+        android:textSize="25sp"
+        android:padding="10dp" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#eee" />
+
+    <ProgressBar android:id="@+id/news_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+    
+    <ListView
+        android:id="@+id/vi_detail_list"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent" 
+        android:dividerHeight="10dp"
+        android:divider="#F8F8F8"        
+        android:clickable="false">
+    </ListView>
+
+</LinearLayout>

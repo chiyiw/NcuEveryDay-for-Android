@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/about_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关于"
+        android:textColor="#33b5e5"
+        android:textSize="25sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="3dp"
+        android:background="#33b5e5" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="18dp"
+        android:src="@drawable/icon_120" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="NcuEveryDay v1.0\n关注你的身边 "
+        android:textColor="#33b5e5"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/about_main_qanda"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_btn_selector"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="      Q&amp;A      "
+        android:textColor="#ffff"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/about_main_update"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_btn_selector"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="  检测更新  "
+        android:textColor="#ffff"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="right"
+        android:text=" @汪鹏  2015.5"
+        android:textColor="#999"
+        android:textSize="10sp"
+        android:typeface="normal" />
+
+</LinearLayout>

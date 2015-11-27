@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#171D27" >
+
+        <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="42dp"
+        android:background="#33b5e5"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:textStyle="" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/shadow" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#F8F8F8"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="106dp"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="常用功能"
+                android:textColor="#33b5e5" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="2dp"
+            android:background="#33b5e5" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/shadow" />
+    </LinearLayout>
+    
+    <com.jeremyfeinstein.slidingmenu.lib.SlidingMenu
+        android:id="@+id/slidingmenulayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/btn_weather"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="天气" 
+                android:src="@drawable/weather"/>
+
+            <ImageButton
+                android:id="@+id/btn_course"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="课表" 
+                android:src="@drawable/course"/>
+            <ImageButton
+                android:id="@+id/btn_score"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="成绩单"
+                android:src="@drawable/score" />
+            <ImageButton
+                android:id="@+id/btn_book"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="图书馆" 
+                android:src="@drawable/book"/>
+            <ImageButton
+                android:id="@+id/btn_about"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="关于" 
+                android:src="@drawable/about"/>
+            <TextView android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="功能增加中……"
+                android:gravity="center"/>
+        </LinearLayout>
+    </com.jeremyfeinstein.slidingmenu.lib.SlidingMenu>
+
+</LinearLayout>

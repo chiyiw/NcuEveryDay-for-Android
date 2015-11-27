@@ -1,0 +1,600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><link rel="shortcut icon" href="http://www.ncuhome.cn/2014/images/ncuhome_01.png"><link rel="stylesheet" href="androiddetail_files/common.css"><link rel="stylesheet" href="androiddetail_files/reset.css">
+	<script src="androiddetail_files/jquery_002.js"></script>
+	<script src="androiddetail_files/common.js"></script>
+	<link rel="stylesheet" href="androiddetail_files/flexslider.css"><link rel="stylesheet" href="androiddetail_files/reset_002.css" media="all"><link rel="stylesheet" href="androiddetail_files/MetroJs.css" media="all"><link rel="stylesheet" href="androiddetail_files/base.css" media="all"><link rel="stylesheet" href="androiddetail_files/index.css">
+    <script type="text/javascript" src="androiddetail_files/html5.js"></script>
+    <script type="text/javascript" src="androiddetail_files/jquery-1.js"></script>
+    <script type="text/javascript" src="androiddetail_files/MetroJs.js"></script>
+    <script type="text/javascript" src="androiddetail_files/common_002.js"></script>
+	<script src="androiddetail_files/jquery.js"></script>
+    <meta http-equiv="X-UA-Compatible" content=" IE=8 "><meta name="keywords" content="南昌大学，家园网，南昌大学前湖校区，南昌大学家园网"><meta name="description" content="南昌大学家园网（www.ncuhome.cn）是南昌大学最早的、也是唯一一个由学生自发设计制作、管理、维护的校园学生门户网站，以实现学生工作进网络、开拓大学生思想政治教育网络阵地为目标， 网站建设的宗旨是力求成为：南昌大学思想政治教育的网上平台；南昌大学学生工作的网上宣传平台；学校为学生提供服务的信息平台；学生、教师、家长和学校四方的网上交流平台。">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function searchClick() {
+                var SearchKey = $('#SearchInput').val();
+                if (len(SearchKey) > 2) {
+                    window.open('http://www.ncuhome.cn/NewIndex2013/Article_search.aspx?KeyWord=' + encodeURI($('#SearchInput').val()));
+                    document.getElementById("SearchInput").value = "";
+                }
+                else if (len(SearchKey) == 0) { }
+                else {
+                    alert('搜索内容太短了');
+                }
+            }
+            function len(s) {
+                var l = 0;
+                var a = s.split("");
+                for (var i = 0; i < a.length; i++) {
+                    if (a[i].charCodeAt(0) < 299) {
+                        l++;
+                    } else {
+                        l += 2;
+                    }
+                }
+                return l;
+            }
+
+            $('#Search').click(function () {
+                searchClick();
+            });
+
+
+            function bindTextAndButton(t, b) {
+                var fun = function (ev) {
+                    var e = ev || event;
+                    if (e.keyCode == 13) {
+                        b.click();
+                        return false;
+                    }
+                };
+                t.onkeydown = fun;
+            }
+
+            function dgi(i) { return document.getElementById(i); }
+            bindTextAndButton(dgi('SearchInput'), dgi('Search'));
+            bindTextAndButton(dgi('ctl00_UserNameInput'), dgi('ctl00_login'));
+            bindTextAndButton(dgi('ctl00_PasswordInput'), dgi('ctl00_login'));
+        });
+
+        //滚动条对应顶部搜索栏的左移对应处理，与原窗口变化一起进行；
+        window.onscroll=function(){
+            if ($('.nav').css('position') == 'fixed') {
+                var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+                if（scrollLeft>4）
+                document.getElementById("nav").style.left=-document.body.scrollLeft+6;
+            }
+        }
+    </script>
+    
+    <title>
+        经管学院第九届优秀团日活动评审会举行</title>
+    <style>
+        .replay_header
+        {
+            background: url(images/line.jpg) repeat-x left bottom;
+            height: 40px;
+            line-height: 40px;
+        }
+        .replay_header p
+        {
+            font-size: 18px;
+            color: #2b63a5;
+        }
+        .add_time
+        {
+            font-size: 14px;
+            margin-left: 220px;
+            display: inline-block;
+        }
+        .photo
+        {
+            display: block;
+        }
+        .comments
+        {
+            padding-left: 5px;
+            font-size: 14px;
+            color: #6f6f6f;
+            margin-top: 10px;
+        }
+        
+        .message
+        {
+            margin-left: 75px;
+        }
+        .message p
+        {
+            line-height: 28px;
+            padding: 7px 10px;
+            border-radius: 2px;
+        }
+        .p_bg
+        {
+            background: #f5f5f5;
+            font-size: 14px;
+        }
+    </style>
+    <script type="text/javascript">
+        document.onkeydown = function (e) {
+            if (((e || event).keyCode == 13) && (event.srcElement.type != 'password')) {
+                return false;
+            }
+        }
+        $(function () {
+            $('.bdsharebuttonbox').find('a').bind("click", function () { FenxiangAddPoint() });
+            $('.bdshare_popup_list li').find('a').bind("click", function () { FenxiangAddPoint() });
+            //            document.getElementsByClassName('bdsharebuttonbox')[0].getElementsByTagName('a').onclick = FenxiangAddPoint();
+            //            document.getElementsByClassName('bdshare_popup_list')[0].getElementsByTagName('a').onclick = FenxiangAddPoint();
+        });
+        function FenxiangAddPoint() {
+
+            $.post("FenXiangAddPoint.ashx", { action: 'AddPoint' }, function () {
+            });
+        }
+    </script>
+
+    <!--[if IE 6]>
+            <script src="scripts/ie6-png.js"></script>
+        <![endif]-->
+    <!--[if IE 6]>
+            <script>
+                DD_belatedPNG.fix(".pngImg,.pngImg:hover,.know_all_list li span");
+            </script>
+        <![endif]-->
+<title>
+
+</title><script src="androiddetail_files/share.js"></script><link href="http://bdimg.share.baidu.com/static/api/css/share_style1_16.css" rel="stylesheet"></head>
+<body>
+    <form name="aspnetForm" method="post" action="Article_detail.aspx?SubjectId=31082" id="aspnetForm">
+<div>
+<input name="__EVENTTARGET" id="__EVENTTARGET" value="" type="hidden">
+<input name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" type="hidden">
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="" type="hidden">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div>
+
+	<input name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWCALW0dOsBALn7MLJAQKssOrUBwKsh4yYCQL6hK/rBwKf5MeMAQKZysrbDQLwwN6eCP5lH9Dm4rE0NbUA40nsUkGA9Wg5" type="hidden">
+</div>
+    <div id="warpper">
+        <header>
+               <div class="toper">
+		
+        <a href="http://www.ncuhome.cn/"><img src="androiddetail_files/ncuhome.png"></a>
+		<div class="weilogo">
+			<a href="http://weibo.com/ncuhome" class="logo_weibo"></a>
+			<a href="http://wx.ncuhome.cn/" class="logo_weixin"></a>
+			<a href="http://user.qzone.qq.com/1503241991" class="logo_kongjian"></a>
+		</div>
+	</div>
+	<div style="position: fixed;" class="nav">
+		<div class="nav_content">
+			<a href="http://www.ncuhome.cn/"><img src="androiddetail_files/ncuhome2.png" style="float: left; display: block; margin-top: 5px;" class="ncuhome2_logo"></a>
+			<div class="navlink">
+				<a>校园资讯</a>
+				<a>学生工作</a>
+				<a>家园社区</a>
+				<a style="background: none repeat scroll 0% 0% transparent;">生活频道</a>
+				<a style="background: none repeat scroll 0% 0% transparent;" href="http://passport.ncuhome.cn/NewXZZX/AppAssemble/default.aspx">学子在线</a>
+			</div>    
+			<div class="loading" id="loading">
+				<input style="display: block; width: 134px;" class="searchtxt" placeholder="Search News..." id="SearchInput" type="text">
+				<input class="searchbtn" id="Search" type="button">
+				<span>|</span>
+				
+				
+				<a id="ctl00_logined" class="loading_after_btn"><img src="androiddetail_files/loading_after.png" alt="头像"></a>
+			</div>
+		</div>
+		<div class="second_nav">
+			<ul style="display: none; left: 228px;" class="second_nav_1">
+				<li><a href="http://www.ncuhome.cn/Default.aspx?partID=393" target="_blank">学工要闻</a></li>
+				<li><a href="http://www.ncuhome.cn/NewIndex2013/NewAnnoucement.aspx">校园公告</a></li>
+				<li><a href="http://www.ncuhome.cn/Default.aspx?partID=394" target="_blank">院系动态</a></li>
+				<li><a href="http://www.ncuhome.cn/Default.aspx?partID=397" target="_blank">家园新闻</a></li>
+				<li><a href="http://people.ncuhome.cn/" target="_blank">校园人物</a></li>
+			</ul>
+			<ul style="display: none; left: 298px;" class="second_nav_2">
+				<li><a href="http://www.ncuhome.cn/Newindex2013/NewInstitution.aspx">机构设置</a></li>
+				<li><a href="http://www.ncuhome.cn/NewIndex2013/Newparty.aspx">学生党建</a></li>
+                <li><a href="http://www.ncuhome.cn/Default.aspx?partID=433">学生管理</a></li>
+				<li><a href="http://www.ncuhome.cn/Newindex2013/NewStuEdu.aspx">学生教育</a></li>
+				<li><a href="http://www.ncuhome.cn/Newindex2013/NewStuSubsildise.aspx">学生资助</a></li>
+				<li><a href="http://ndxl.ncu.edu.cn/" target="_blank">心理之家</a></li>
+			</ul>
+			<ul style="display: none; left: 478px;" class="second_nav_3">
+				<li><a href="http://freshman.ncuhome.cn/" target="_blank">新生指南</a></li>
+				<li><a href="http://special.ncuhome.cn/" target="_blank">家园专题</a></li>
+				<li><a href="http://ccj.ncuhome.cn/" target="_blank">多彩期刊</a></li>
+				<li><a href="http://h.ncuhome.cn/NewBBS/index.aspx" target="_blank">话题</a></li>
+				<li><a href="http://photo.ncuhome.cn/" target="_blank">相册</a></li>
+			</ul>
+			<ul style="display: none; left: 528px;" class="second_nav_4">
+				<li><a href="http://salon.ncuhome.cn/" target="_blank">活动讲座</a></li>
+				<li><a href="http://cor.ncuhome.cn/" target="_blank">社团组织</a></li>
+				<li><a href="http://m.ncuhome.cn/" target="_blank">跳蚤市场</a></li>
+				<li><a href="http://passport.ncuhome.cn/NewXZZX/PCGuard/default.aspx" target="_blank">电脑卫队</a></li>
+				<li><a href="http://222.204.3.210/ssdf/" target="_blank">用电查询</a></li>
+			</ul>
+			<ul style="left: 778px; display: none;" class="second_nav_5">
+				<li><a href="http://www.ncuhome.cn/FaceToMaster/Default.aspx" target="_blank">校长面对面</a></li>
+				<li><a href="http://passport.ncuhome.cn/NewXZZX/AppAssemble/jxj.aspx" target="_blank">综合素质</a></li>
+				<li><a href="http://passport.ncuhome.cn/NewXZZX/AppAssemble/xnbs.aspx" target="_blank">校内办事</a></li>
+				<li><a href="http://passport.ncuhome.cn/NewXZZX/AppAssemble/SWZL.aspx" target="_blank">失物招领</a></li>
+			</ul>
+			<div class="loading_content loading_before">
+				<div class="loadingCon_txt">
+					<span>账号：</span>
+					<input name="ctl00$UserNameInput" id="ctl00_UserNameInput" placeholder="用户名 / 学号" type="text">
+				</div>
+				<div class="loadingCon_txt">
+					<span>密码：</span>
+					<input name="ctl00$PasswordInput" id="ctl00_PasswordInput" type="password">
+				</div>
+				<input id="ctl00_memory" name="ctl00$memory" type="checkbox">
+				<label for="memory">记住密码</label>
+				<a href="http://passport.ncuhome.cn/NewXZZX/Find/login_find1.aspx">忘记密码/用户名</a>
+				<input name="ctl00$LoginButton" value="登录" id="ctl00_LoginButton" class="loadingCon_btn" type="submit">
+			</div>
+			<div style="display: none;" class="loading_content loading_after">
+				<span>您好，</span><span>赤忆w</span>
+				<a href="http://passport.ncuhome.cn/NewXZZX/AppAssemble/Default.aspx">个人中心</a>
+				<a id="ctl00_LoginOut" href="javascript:__doPostBack('ctl00$LoginOut','')">退出</a>
+			</div>
+		</div>
+	</div>
+        </header>
+        
+    <div class="main_contain ovh">
+        <div class="content fll">
+            <div class="sub_crumbs">
+                <dl>
+                    <dt>当前位置：</dt>
+                    <dd>
+                        家园首页 &nbsp; &gt;</dd>
+                    <dd>
+                        </dd>
+                    
+                </dl>
+            </div>
+            <div class="eassy">
+                <header>
+                            <h1>经管学院第九届优秀团日活动评审会举行</h1>
+                            <div class="eassy_header_detail">
+                                <ul class="clearfix ovh">
+                                    <li>
+                                        <a href="http://www.ncuhome.cn/Default.aspx?SubjectID=394" class="eassy_type">学院动态</a>
+                                    </li>
+                                    <li>作者：xgclq</li>
+                                    <li>2014/12/24 22:56:23</li>
+                                    <li class="ovh"><p class="fll">分享到</p><div data-bd-bind="1422081214876" class="bdsharebuttonbox bdshare-button-style1-16" style="float:left;margin-left:10px;"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_t163" data-cmd="t163" title="分享到网易微博"></a></div>
+<script>    window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=86835285.js?cdnversion=' + ~(-new Date() / 36e5)];</script></li>
+                                </ul>
+                            </div>
+                        </header>
+                <div class="eassy_body">
+                    <!--文章开始-->
+                    <div class="eassy_lead">
+                        <p>
+                            <span>[导读]</span><span id="ctl00_ContentPlaceHolder1_DaoDu">经管学院第九届优秀团日活动评审会举行</span></p>
+                    </div>
+                    <div class="eassy_main">
+                        <p>
+                            </p><p style="text-align: center;"><img src="androiddetail_files/6355505854478586803033941.jpg" title="2.jpg"></p><p><strong>经管学院</strong>消息：12月21日下午2点，以“与信仰对话，为中国梦奋斗”为主题的第九届优秀团日活动评审会在外经楼104举行。在本次评选中，经管学院工商管理133班荣获全校第一名的成绩，经管学院ACCA132班拿到第二名。</p><p>工
+管133班的团日活动以“饮水思源、感谢师恩”为主题，主要分为风雅颂三部分的活动。“风”——寻名师之风，宣扬优秀教师事迹；“雅”——品古韵中国之
+雅，尊敬师长是中国的传统美德；颂——歌师德之颂，教师是引路人，是指航灯，翱翔的翅膀，为了表达感谢之恩，运用微博，诗朗诵，明信片等形式进行宣传。教
+育梦就是中国梦，只有搞好了教育，那么中国梦就指日可待了。ACCA132班则用欢快的语调向我们介绍了他们的团日活动——“青年人我们在行动”。活动分
+为榜样力量在行动、公益奉献在行动、保护传统文化在行动以及爱的传递在行动四部分，以行动践行梦想。</p><p><br></p><p></p>
+                    </div>
+                </div>
+                <div class="replay">
+                    <div class="replay_header">
+                        <p>
+                            回复</p>
+                    </div>
+                    <div class="comments" id="comments">
+                        <!--第一条评论-->
+                        
+                    </div>
+                    <!--文章结束，footer中是评论框以下的东西-->
+                    <div class="eassy_comment">
+                        <div class="eassy_comment_head clearfix">
+                            <span class="fw">评论</span> <span class="com_reg"><a href="">注册</a> </span><span class="comment_num">
+                                <b>
+                                    0</b>评论</span>
+                        </div>
+                        <div class="text_box">
+                            <textarea name="ctl00$ContentPlaceHolder1$sayText" id="ctl00_ContentPlaceHolder1_sayText"></textarea>
+                        </div>
+                        <div class="eassy_log_in">
+                            <div class="user_info">
+                                <div class="user">
+                                    <label for="username">
+                                    </label>
+                                    
+                                </div>
+                                <div class="pass">
+                                    <label for="passwrod">
+                                    </label>
+                                    
+                                </div>
+                                <div class="auto_log">
+                                    
+                                    
+                                </div>
+                                <div class="pub_btn">
+                                    <input name="ctl00$ContentPlaceHolder1$addComment" value="发表" id="ctl00_ContentPlaceHolder1_addComment" type="submit">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sidebar flr">
+            <span class="seplin_main"></span>
+
+            <div class="sub_part_studentwork">
+                
+
+   
+                <div class="person">
+                    <header class="sub_part_head">
+                            <h2>校园人物</h2>
+                            <a href="http://http//people.ncuhome.cn/">更多</a>
+                        </header>
+                    <!--左右切换按钮-->
+                    <div class="person_left">
+                    </div>
+                    <div class="person_right">
+                    </div>
+                    <div class="live-tile carousel ha">
+                        
+                                <div style="transition-property: transform; transition-duration: 0s; transition-timing-function: ease; transform: translate(100%, 0%) translateZ(0px);" class="slide ha">
+                                    <p>
+                                        <a href="http://people.ncuhome.cn/detail.html?id=198&amp;type=3">
+                                            <img src="androiddetail_files/20150117123252.jpg" alt=""></a>
+                                    </p>
+                                    <p>
+                                        <a href="http://people.ncuhome.cn/detail.html?id=198&amp;type=3">
+                                            江帆</a></p>
+                                    <p>
+                                        江帆：感悟辅导员责任之“重”</p>
+                                </div>
+                            
+                                <div style="transform: translate(-100%, 0%) translateZ(0px); transition-duration: 500ms; transition-property: transform; transition-timing-function: ease;" class="slide ha">
+                                    <p>
+                                        <a href="http://people.ncuhome.cn/detail.html?id=197&amp;type=3">
+                                            <img src="androiddetail_files/20150117122143.jpg" alt=""></a>
+                                    </p>
+                                    <p>
+                                        <a href="http://people.ncuhome.cn/detail.html?id=197&amp;type=3">
+                                            钱宇航</a></p>
+                                    <p>
+                                        钱宇航：钱导员？钱姐姐！</p>
+                                </div>
+                            
+                                <div style="transform: translate(-100%, 0%) translateZ(0px); transition-duration: 500ms; transition-property: transform; transition-timing-function: ease;" class="slide ha">
+                                    <p>
+                                        <a href="http://people.ncuhome.cn/detail.html?id=196&amp;type=3">
+                                            <img src="androiddetail_files/20150117121350.jpg" alt=""></a>
+                                    </p>
+                                    <p>
+                                        <a href="http://people.ncuhome.cn/detail.html?id=196&amp;type=3">
+                                            沈松</a></p>
+                                    <p>
+                                        沈松：辅导员的“中国梦”</p>
+                                </div>
+                            
+                                <div style="transform: translate(0%, 0%) translateZ(0px); transition-duration: 500ms; transition-property: transform; transition-timing-function: ease;" class="slide ha active">
+                                    <p>
+                                        <a href="http://people.ncuhome.cn/detail.html?id=195&amp;type=4">
+                                            <img src="androiddetail_files/20141223023847.jpg" alt=""></a>
+                                    </p>
+                                    <p>
+                                        <a href="http://people.ncuhome.cn/detail.html?id=195&amp;type=4">
+                                            张强</a></p>
+                                    <p>
+                                        张强：最好的时光在路上</p>
+                                </div>
+                            
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="sub_part_activity">
+                <header class="sub_part_head">
+                            <h2>活动讲座</h2>
+                            <a href="http://salon.ncuhome.cn/">更多</a>
+                        </header>
+                <div class="sub_part_body hgroup_title">
+                    
+                    
+                </div>
+            </div>
+            <div class="sub_part_society">
+                <header class="sub_part_head">
+                            <h2>社团组织</h2>
+                            <a href="http://cor.ncuhome.cn/">更多</a>
+                        </header>
+                <div class="sub_part_body hgroup_title">
+                    
+                            <li><p style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 300px;"><a target="_blank" href="http://cor.ncuhome.cn/event.aspx?id=41">
+                            
+南昌大学自强社:#全国高校最佳公益#大家多多支持哟这是一份关于“2014年全国高校最佳公益推动力评选”的一份问卷，本次的问卷调查是针对全国高校的
+公益项目，评选出支持率较高的公益项目将会在冬令营中的“高校公益论坛”上进行表彰。大家都是各高校公益社团的领导者，应该都能带动一大批志愿者来参与投
+票吧？这些公益项目中总有一些是您知道的、了解的、参与的、甚至是他的受助人群！那就为您喜欢的项目投上宝贵的一票吧，也能更好地提高能对公益的认识~别
+忘了转发给其他小伙伴哦（最好是每个成员发动大概15人参与投票）~ http://www.sojump.com/jq/4388468.aspx 
+收起
+                            </a></p>
+                            </li>
+                        
+                            <li><p style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 300px;"><a target="_blank" href="http://cor.ncuhome.cn/event.aspx?id=41">
+                            南昌大学自强社:心灵鸡汤--经典语录 
+看过人生繁华，还是平淡最真。我们经历了风雨后，已不在乎人生是否有彩虹，最重要的是我们曾经走过。在生活中，我们不要强求太完美。不妨试试少点抱怨，多
+一点洒脱。在豁达的心态中坦然地走自己人生的路。
+                            </a></p>
+                            </li>
+                        
+                            <li><p style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 300px;"><a target="_blank" href="http://cor.ncuhome.cn/event.aspx?id=41">
+                            南昌大学自强社:心灵鸡汤--经典语录 
+留点时间陪陪自己，别让自己成为最熟悉的陌生人。当你逐渐把眼光由外界收回自己身上的时候，你就会发现你的内在力量在逐渐地累积、增长，跟自己的关系也在
+逐步改善。你跟自己的关系越好，你就越快乐！人生本来就是苦多于乐。开心有太多人可以和你分享，悲伤却不是很多人可和你分担。
+                            </a></p>
+                            </li>
+                        
+                            <li><p style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 300px;"><a target="_blank" href="http://cor.ncuhome.cn/event.aspx?id=41">
+                            南昌大学自强社:心灵鸡汤--经典语录 
+我们都曾经以为，有些事情是不可以放手的。时日渐远，当你回望你会发现，你曾经以为不可以放手的东西，只是生命瞬间的一块跳板。你跳过了，就可以变得更精
+采。人在跳板上，最辛苦的不是跳下来那一刻，而是跳下来之前心里的挣扎无助和患得患失。我们以为跳不过去了，闭上眼睛，鼓起勇气，却跳过了。
+                            </a></p>
+                            </li>
+                        
+                            <li><p style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 300px;"><a target="_blank" href="http://cor.ncuhome.cn/event.aspx?id=41">
+                            南昌大学自强社:2014年的最后一天，提前祝大家元旦快乐。祝福大家身体健康我，学业有成，希望自强社越办越好。
+                            </a></p>
+                            </li>
+                        
+                    
+                </div>
+            </div>
+            <div class="sub_part_community">
+                <header class="sub_part_head">
+                            <h2>跳蚤市场</h2>
+                            <a href="http://www.ncuhome.cn/daohang/Default.aspx">更多</a>
+                        </header>
+                <div class="sub_part_body hgroup_p ovh">
+                    <div class="sub_flea fll">
+                        
+                                <div>
+                                    <p>
+                                        <a href="http://m.ncuhome.cn/subHTML/SUB_MoreInformation.htm?id=65919" class="db">
+                                            <img src="androiddetail_files/20150113021801.jpg" class="db" alt=""></a>
+                                    </p>
+                                    <p>
+                                        <a href="http://m.ncuhome.cn/subHTML/SUB_MoreInformation.htm?id=65919">
+                                            单反照相机佳能3...</a>
+                                    </p>
+                                </div>
+                            
+                                <div>
+                                    <p>
+                                        <a href="http://m.ncuhome.cn/subHTML/SUB_MoreInformation.htm?id=65918" class="db">
+                                            <img src="androiddetail_files/20150108051407.png" class="db" alt=""></a>
+                                    </p>
+                                    <p>
+                                        <a href="http://m.ncuhome.cn/subHTML/SUB_MoreInformation.htm?id=65918">
+                                            二手联通4M无线...</a>
+                                    </p>
+                                </div>
+                            
+                                <div>
+                                    <p>
+                                        <a href="http://m.ncuhome.cn/subHTML/SUB_MoreInformation.htm?id=65917" class="db">
+                                            <img src="androiddetail_files/20150108045108_002.jpg" class="db" alt=""></a>
+                                    </p>
+                                    <p>
+                                        <a href="http://m.ncuhome.cn/subHTML/SUB_MoreInformation.htm?id=65917">
+                                            NOKIA525...</a>
+                                    </p>
+                                </div>
+                            
+                                <div>
+                                    <p>
+                                        <a href="http://m.ncuhome.cn/subHTML/SUB_MoreInformation.htm?id=65916" class="db">
+                                            <img src="androiddetail_files/20150107050409.jpg" class="db" alt=""></a>
+                                    </p>
+                                    <p>
+                                        <a href="http://m.ncuhome.cn/subHTML/SUB_MoreInformation.htm?id=65916">
+                                            吉他</a>
+                                    </p>
+                                </div>
+                            
+                        
+                    </div>
+
+                    <div class="cl">
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <footer class="footer">
+     		<div class="footer_content">
+			<div class="footer_part" style="width:210px;">
+				<h2>友情链接</h2>
+				<a href="http://www.ncu.edu.cn/" target="_blank">南昌大学</a>
+                <a href="http://www.univs.cn/" target="_blank">中国大学生在线</a>
+				<a href="http://news.ncu.edu.cn/" target="_blank">南昌大学新闻网</a>
+                <a href="http://xyh.ncu.edu.cn/" target="_blank">南昌大学校友网</a>
+				<a href="http://jwc.ncu.edu.cn/" target="_blank">南昌大学教务在线</a>
+				<a href="http://zjc.ncu.edu.cn/" target="_blank">南昌大学招就信息网</a>
+				<a href="http://lib.ncu.edu.cn/" target="_blank">南昌大学图书馆</a>
+				<a href="http://net.ncu.edu.cn/" target="_blank">南昌大学网络服务中心</a>
+				<a href="http://ndxl.ncu.edu.cn/" target="_blank">南昌大学心理健康教育中心</a>
+                <a href="http://hqfwjt.ncu.edu.cn/" target="_blank">南昌大学后勤服务集团</a>
+			</div>
+			<div class="footer_part" style="width:115px;">
+				<h2>关于我们</h2>
+				<a href="http://team.ncuhome.cn/Introduction.aspx" target="_blank">网站介绍</a>
+                <a href="http://team.ncuhome.cn/" target="_blank">家园团队 </a>
+				<a href="http://org.ncuhome.cn/" target="_blank">家园志 </a>
+				<a href="http://freshman.ncuhome.cn/2014/joinus/index.aspx" target="_blank">家园招聘</a>
+				<a href="http://www.ncuhome.cn/about2011/03.html" target="_blank">网站地图</a>
+				<script src="androiddetail_files/z_stat.php" language="JavaScript"></script><script src="androiddetail_files/core.php" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=1000129580" target="_blank" title="站长统计">站长统计</a>
+				<a href="http://www.ncuhome.cn/about2011/12.html" target="_blank">免责声明</a>
+			</div>
+			<div class="footer_part" style="width:250px;">
+				<h2>联系我们</h2>
+				<span>电话：83969124/83968920</span>
+				<span>邮箱：ncuadmin@163.com </span>
+				<span>地址：南昌大学前湖校区6栋214</span>
+				<span style="background:none;padding-left:75px;">南昌大学前湖校区7栋0层</span>
+				<a href="http://www.ncuhome.cn/about2011/06.html" target="_blank">商业服务</a>
+				<a href="http://net.china.com.cn/index.htm" target="_blank">有害信息举报</a>
+			</div>
+			<div class="footer_code">
+				<img src="androiddetail_files/weibo_code.jpg" alt="" style="display:block;">
+				<img src="androiddetail_files/weixin_code.jpg" alt="">
+				<img src="androiddetail_files/QQ_code.jpg" alt="">
+				<span></span>
+				<a class="footer_weibo"></a>
+				<a class="footer_weixin"></a>
+				<a class="footer_QQ"></a>
+			</div>
+		</div>
+	
+    <input id="top_btn" type="button">
+    </footer>
+    <div class="bottom">
+		<p>copyright©2001-2014  南昌大学家园网  Version-1.1  build-2014.7</p>
+		<p>南昌大学学工委办  学工处  版权所有</p>
+	</div>
+    </div>
+ </form>
+
+
+</body></html>

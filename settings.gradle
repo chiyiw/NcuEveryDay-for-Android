@@ -1,0 +1,4 @@
+include ':slidingMenu'
+include ':imageLoaderlibrary'
+include ':library'
+include ':ncuEveryDay'

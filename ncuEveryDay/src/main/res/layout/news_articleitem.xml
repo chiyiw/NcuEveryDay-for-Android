@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f8f8f8" 
+    >
+
+    <TextView
+        android:id="@+id/vi_detail_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="0dp"
+        android:paddingTop="0dp"
+        android:textSize="15sp" 
+        android:text="		软件学院消息：软件学院携手南昌大学经管学院青志协一同前往中堡小学举办圣诞特别活动与学生共度圣诞。尽管狂......"/>
+
+    <ImageView
+        android:id="@+id/vi_detail_image"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"     	
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="9dp"
+        android:paddingTop="1dp"
+        android:maxWidth="500dp"      
+        android:adjustViewBounds="true" 
+        android:background="#0ccc"/>
+    	<!-- android:src="@drawable/picture" -->
+
+</LinearLayout>
