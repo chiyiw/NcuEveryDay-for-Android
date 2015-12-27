@@ -1,5 +1,23 @@
 package com.wangpeng.ncueveryday.news;
 
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.wangpeng.ncueveryday.R;
+import com.wangpeng.ncueveryday.mFileOperate;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,25 +27,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Map;
-
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
-
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
-import com.wangpeng.ncueveryday.R;
-import com.wangpeng.ncueveryday.mFileOperate;
-import com.wangpeng.ncueveryday.R.id;
-import com.wangpeng.ncueveryday.R.layout;
 
 public class FragmentHome extends mFragmentBase {
 	private PullToRefreshListView newslistview;
@@ -69,13 +68,12 @@ public class FragmentHome extends mFragmentBase {
 				
 				String title = newslist.get(position - 1).title;
 				String createtime = newslist.get(position - 1).CreateTime;
-				String url = "http://www.ncuhome.cn/NewIndex2013/Article_detail.aspx?SubjectId="
-						+ newslist.get(position - 1).id;
+				String articleid = newslist.get(position - 1).id;
 				
 				System.out.println(newslist.get(position - 1).id);
 				
 				Intent intent = new Intent(getActivity(), ArticleDetail.class);
-				intent.putExtra("url", url); // 文章详情地址
+				intent.putExtra("articleid", articleid); // 文章详情地址
 				intent.putExtra("title", title); // 文章标题
 				intent.putExtra("createtime", createtime); // 文章发布时间
 				getActivity().startActivity(intent);

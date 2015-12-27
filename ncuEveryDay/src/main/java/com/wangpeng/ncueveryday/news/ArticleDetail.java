@@ -1,21 +1,5 @@
 package com.wangpeng.ncueveryday.news;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ExecutionException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.apache.http.Header;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -36,6 +20,25 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.wangpeng.ncueveryday.R;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 文章详情页面
@@ -64,10 +67,18 @@ public class ArticleDetail extends Activity {
 		Bundle bundle = this.getIntent().getExtras();
 		// 获取文章标题
 		vi_title.setText(bundle.getString("title"));
-		// 获取文章详情地址
-		String url = bundle.getString("url");
+		// 获取文章id
+		String articleid = bundle.getString("articleid");
 		// 获取文章发布时间
 		String createtime = bundle.getString("createtime");
+
+		// 文章详情地址
+        // 通过获取html本地解析
+//		String url = "http://www.ncuhome.cn/NewIndex2013/Article_detail.aspx?SubjectId=" + articleid;
+        // 使用服务器解析返回json
+		String url = "http://ncueveryday.sinaapp.com/index.php?article_id=" + articleid;
+
+        System.out.println(articleid);
 
 		// 使用开源Android-async-http类异步获取网络数据
 		AsyncHttpClient asyClient = new AsyncHttpClient();
@@ -97,6 +108,7 @@ public class ArticleDetail extends Activity {
 			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
 				// System.out.println(new String(arg2));
 				listdatas = getListDatas(new String(arg2));
+//				listdatas = getListDatas_local(new String(arg2));
 				mAdapter adapter = new mAdapter(ArticleDetail.this, listdatas);
 				listview.setAdapter(adapter);
 				
@@ -105,14 +117,49 @@ public class ArticleDetail extends Activity {
 		});
 	}
 
+
+    /**
+     * 获取文章内容（后台服务器解析）
+     * @param str
+     * @return Json数据
+     */
+    public ArrayList<Map<String, String>> getListDatas(String str) {
+
+        //str = "[{\"imgUri\":\"\",\"content\":\"化学学院消息：12月13日下午2点，化学学院理研会于18栋1楼东会议室召开会议，集中学习十八届四中全会精神，各班级代表参与了本次会议。\"},{\"imgUri\":\"\",\"content\":\"“天下之事，不难于立法，而难于法之必行”，理研会负责人唐湘兰借助这一句话，与参加会议的同学们学习了“法”的实施与立法相比存在明显的不足，而法治是建设中国特色社会主义的必经之路，厉行法治才能提升国家治理体系，使治理能力现代化，有利于党执政兴国，是国家长治久安的坚强后盾，会议中，理研会负责人就应该成为一种新常态的依法治国进行多方面阐述，并延伸到自身，说道:“依法治国，其实是与我们自身息息相关的，我们要时刻对自己的行为举止内省，对法律严格恪守。”\"}]";
+
+        //System.out.println(str);
+
+        ArrayList<Map<String, String>> list = new ArrayList<Map<String, String>>();
+
+        try {
+            JSONArray arr = new JSONArray(str);
+
+            for(int i = 0; i<arr.length(); i++){
+                JSONObject obj = arr.getJSONObject(i);
+                Map<String, String> map = new HashMap<String, String>();
+
+                map.put("image",obj.getString("imgUri"));
+                map.put("text",obj.getString("content"));
+
+                list.add(map);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        return list;
+    }
+
 	/**
-	 * 获取文章正文内容
+	 * 获取文章正文内容(通过html代码本地解析)
 	 * 
 	 * @param str
 	 *            文章网页源代码
 	 * @return 文章段落列表
 	 */
-	public ArrayList<Map<String, String>> getListDatas(String str) {
+	public ArrayList<Map<String, String>> getListDatas_local(String str) {
 
 		ArrayList<Map<String, String>> list = new ArrayList<Map<String, String>>();
 
@@ -129,7 +176,7 @@ public class ArticleDetail extends Activity {
 
 		// 去除<p style=……>中的属性
 		Pattern p = Pattern
-				.compile("( alt=\".*?\")|( style=\".*?\")|( oldsrc=\".*?\")|( title=\".*?\")");
+				.compile("( alt=\".*?\")|( style=\".*?\")|( oldsrc=\".*?\")|( title=\".*?\")|( width=\".*?\")|( height=\".*?\")");
 		Matcher m = p.matcher(content);
 		content = m.replaceAll("");
 
@@ -141,7 +188,7 @@ public class ArticleDetail extends Activity {
 
 		// 去除<strong> </strong> <p><br></p>等等
 		Pattern p2 = Pattern
-				.compile("(<(|/)strong>|<p>\\s+</p>|<p>(|<br(| /|/)>)</p>|&nbsp;)|<br/>");
+				.compile("(<(|/)strong>|<p>\\s+</p>|<p>(|<br(| /|/)>)</p>|&nbsp;|quot;)|<br/>|<(|/)em>");
 		content = p2.matcher(content).replaceAll("");
 
 		Pattern p3 = Pattern.compile("<p></p>");

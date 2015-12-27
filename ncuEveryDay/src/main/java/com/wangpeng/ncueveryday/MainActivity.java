@@ -1,17 +1,9 @@
 package com.wangpeng.ncueveryday;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import net.youmi.android.AdManager;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.graphics.Color;
-import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -19,6 +11,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -34,7 +27,6 @@ import android.widget.TextView;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.thinkland.sdk.android.SDKInitializer;
 import com.wangpeng.ncueveryday.book.MainActivity_B;
 import com.wangpeng.ncueveryday.course.MainActivity_C;
 import com.wangpeng.ncueveryday.news.FragmentCollege;
@@ -42,7 +34,9 @@ import com.wangpeng.ncueveryday.news.FragmentHome;
 import com.wangpeng.ncueveryday.news.FragmentSchoolWork;
 import com.wangpeng.ncueveryday.score.MainActivity_S;
 import com.wangpeng.ncueveryday.weather.MainActivity_W;
-import com.wangpeng.ncueveryday.weather.UpdateActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 // 继承自FragmentActivity
 public class MainActivity extends FragmentActivity {
@@ -73,14 +67,6 @@ public class MainActivity extends FragmentActivity {
 				.createDefault(this);
 		ImageLoader.getInstance().init(imgloadConfig);
 
-		// 初始化聚合数据接口
-		SDKInitializer.initialize(getApplicationContext());
-		// 初始化有米SDK
-		AdManager.getInstance(this).init("d25f760f5a31e88f",
-				"c16aeb7ef9315e69", false);
-		// 开启用户数据统计服务
-		AdManager.getInstance(this).setUserDataCollect(true);
-
 		mPager = (ViewPager) findViewById(R.id.viewpager);
 
 		// 向Pager中添加页面
@@ -97,9 +83,6 @@ public class MainActivity extends FragmentActivity {
 		// 设置侧滑菜单
 		setSlideMenu();
 
-		// 检查更新
-		AdManager.getInstance(this).asyncCheckAppUpdate(
-				new UpdateActivity(this, true));
 	}
 
 	public void SetmAdapter() {
@@ -205,11 +188,7 @@ public class MainActivity extends FragmentActivity {
 							@Override
 							public void onClick(View v) {
 								// 异步调用更新接口
-								AdManager.getInstance(MainActivity.this)
-										.asyncCheckAppUpdate(
-												new UpdateActivity(
-														MainActivity.this,
-														false));
+								Log.d("未完成","未实现检查更新！");
 								dialog.dismiss();
 							}
 						});

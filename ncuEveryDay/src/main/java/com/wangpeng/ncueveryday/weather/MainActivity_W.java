@@ -1,46 +1,17 @@
 package com.wangpeng.ncueveryday.weather;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Collections;
-
-import net.youmi.android.AdManager;
-import net.youmi.android.banner.AdSize;
-import net.youmi.android.banner.AdView;
-import net.youmi.android.banner.AdViewListener;
-import net.youmi.android.onlineconfig.OnlineConfigCallBack;
-
-import org.apache.http.Header;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -56,6 +27,23 @@ import com.thinkland.sdk.android.JuheData;
 import com.thinkland.sdk.android.Parameters;
 import com.thinkland.sdk.android.SDKInitializer;
 import com.wangpeng.ncueveryday.R;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity_W extends Activity {
 
@@ -87,6 +75,10 @@ public class MainActivity_W extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.wea_activity_main);
+
+		// 初始化聚合数据接口
+		SDKInitializer.initialize(getApplicationContext());
+
 		SetLayout(); // 初始化View控件布局
 
 		preferences = getPreferences(Activity.MODE_PRIVATE);
@@ -100,72 +92,8 @@ public class MainActivity_W extends Activity {
 		ShowUI(areaid, cityname);
 		//Test();
 
-		SetAdLayout();
 	}
 
-	// 设置有米广告条
-	void SetAdLayout() {
-
-		IsOpenAd = preferences.getString("IsOpenAd", "false"); // 参数2为空值时的默认值
-
-		AdManager.getInstance(this).asyncGetOnlineConfig("IsOpenAd",
-				new OnlineConfigCallBack() {
-					public void onGetOnlineConfigSuccessful(String key,
-							String value) {
-						// 获取在线参数成功
-						System.out.println("广告是否开启在线配置获取成功!状态为" + value);
-						IsOpenAd = value;
-						pref_editor.putString("IsOpenAd", value);
-
-						if (!pref_editor.commit()) {
-							System.out.println("！！！广告是否开启在线配置获取成功但是未保存到本地！");
-						}
-					}
-
-					public void onGetOnlineConfigFailed(String key) {
-						// 获取在线参数失败，可能原因有：键值未设置或为空、网络异常、服务器异常
-						System.out.println("获取广告是否开启在线配置失败！");
-					}
-				});
-		/**
-		 * 悬浮广告条
-		 */
-		// 检测在线配置中的“广告开关”是否开启，如果关闭了广告则不显示广告
-		if (IsOpenAd.equals("false")) {
-			System.out.println("在线配置手动关闭了广告开关！");
-			return;
-		}
-
-		// 实例化 LayoutParams（重要）
-		FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
-				FrameLayout.LayoutParams.FILL_PARENT,
-				FrameLayout.LayoutParams.WRAP_CONTENT);
-
-		// 设置广告条的悬浮位置
-		layoutParams.gravity = Gravity.BOTTOM | Gravity.RIGHT; // 这里示例为右下角
-		// 实例化广告条
-		AdView adView = new AdView(this, AdSize.FIT_SCREEN);
-		// 调用 Activity 的 addContentView 函数
-		this.addContentView(adView, layoutParams);
-
-		adView.setAdListener(new AdViewListener() {
-
-			public void onSwitchedAd(AdView adView) {
-				// 切换广告并展示
-				System.out.println("切换广告并展示");
-			}
-
-			public void onReceivedAd(AdView adView) {
-				// 请求广告成功
-				System.out.println("请求广告成功");
-			}
-
-			public void onFailedToReceivedAd(AdView adView) {
-				// 请求广告失败
-				System.out.println("请求广告失败");
-			}
-		});
-	}
 
 	// 本地测试模拟联网数据
 	public void Test() {
@@ -555,29 +483,6 @@ public class MainActivity_W extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 
-		// if (id == R.id.about) { // 关于项
-		//
-		// LayoutInflater flater = getLayoutInflater();
-		// View mview = flater.inflate(R.layout.wea_aboutdialog, null);
-		// final Dialog dialog = new AlertDialog.Builder(this).setView(mview)
-		// .create();
-		// // 检查更新按钮
-		// mview.findViewById(R.id.about_update).setOnClickListener(
-		// new OnClickListener() {
-		//
-		// public void onClick(View v) {
-		// // 异步调用更新接口
-		// AdManager.getInstance(MainActivity_W.this)
-		// .asyncCheckAppUpdate(
-		// new UpdateActivity(
-		// MainActivity_W.this, false));
-		// dialog.dismiss();
-		// }
-		// });
-		// // 显示对话框
-		// dialog.show();
-		// return true;
-		// } else
 		if (id == R.id.refresh) { // 刷新项
 			String areaid = preferences.getString("areaid", "101010100");
 			String cityname = preferences.getString("cityname", "北京");
