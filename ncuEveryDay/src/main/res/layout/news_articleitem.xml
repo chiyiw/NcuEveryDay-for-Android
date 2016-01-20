@@ -16,18 +16,19 @@
         android:paddingTop="0dp"
         android:textSize="18sp"
         android:text="		软件学院消息：软件学院携手南昌大学经管学院青志协一同前往中堡小学举办圣诞特别活动与学生共度圣诞。尽管狂......"/>
+        <!--android:background="#ff0"-->
 
     <ImageView
         android:id="@+id/vi_detail_image"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"     	
+        android:layout_height="fill_parent"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:paddingBottom="9dp"
+        android:paddingBottom="1dp"
         android:paddingTop="1dp"
-        android:maxWidth="500dp"      
-        android:adjustViewBounds="true"
-        android:background="#0ccc"/>
+        android:adjustViewBounds="true"/>
+        <!--android:background="#0fc"/>-->
+
     	<!-- android:src="@drawable/picture" -->
 
 </LinearLayout>

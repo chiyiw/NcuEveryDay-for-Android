@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "23.0.1"
+    buildToolsVersion '21.1.2'
 
     defaultConfig {
         applicationId "com.wangpeng.ncueveryday"
@@ -19,10 +19,13 @@ android {
 }
 
 dependencies {
-    compile project(':imageLoaderlibrary')
-    compile project(':library')
+    compile project(':pullToRefresh')
     compile project(':slidingMenu')
     compile 'com.android.support:support-v4:19.1.0'
     compile files('libs/android-async-http-1.4.6.jar')
     compile files('libs/juhe_sdk_v_2_5.jar')
+    compile files('libs/glide-3.6.1.jar')
+    compile files('libs/butterknife-7.0.1.jar')
+
+    compile 'com.github.orhanobut:logger:1.12'
 }

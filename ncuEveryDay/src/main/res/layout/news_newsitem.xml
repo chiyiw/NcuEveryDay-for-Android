@@ -31,7 +31,7 @@
                 android:maxHeight="80dp"
                 android:maxWidth="100dp"
                 android:padding="0dp"/>
-            <!-- 
+            <!--
                 android:src="@drawable/picture" />
 			 -->
 			 
@@ -43,7 +43,7 @@
                 android:layout_marginRight="5dp"
                 android:padding="3dp"
                 android:text="软件学院全体师生到西藏旅游云南广西西藏旅游！"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -54,7 +54,7 @@
             android:layout_below="@+id/pic_title"
             android:text="		软件学院消息：软件学院携手南昌大学经管学院青志协一同前往中堡小学举办圣诞特别活动与学生共度圣诞。尽管狂......"
             android:textColor="#D0000000"
-            android:textSize="13sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/createtime"
@@ -64,7 +64,7 @@
             android:layout_margin="3dp"
             android:text="2015/1/25  18:13:20"
             android:textColor="#80000000"
-            android:textSize="10sp" />
+            android:textSize="12sp" />
     </RelativeLayout>
 
 </RelativeLayout>

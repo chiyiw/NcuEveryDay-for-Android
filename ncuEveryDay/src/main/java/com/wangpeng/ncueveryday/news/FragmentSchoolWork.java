@@ -30,7 +30,7 @@ import java.util.Map;
 public class FragmentSchoolWork extends mFragmentBase {
 	private PullToRefreshListView newslistview;
 	private ArrayList<NewsItem> newslist;
-	private myAdapter adapter = null;
+	private NewsAdapter adapter = null;
 	private String FILENAME = "list3.json";
 	
 	@Override
@@ -54,7 +54,7 @@ public class FragmentSchoolWork extends mFragmentBase {
 		// json转化为list
 		newslist = Json2list(json);
 		// 呈现数据到UI布局
-		adapter = new myAdapter(this.getActivity(), getlist(newslist));
+		adapter = new NewsAdapter(this.getActivity(), getlist(newslist));
 		newslistview.setAdapter(adapter);
 		
 		// 文章列表项点击事件

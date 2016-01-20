@@ -25,8 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.orhanobut.logger.Logger;
 import com.wangpeng.ncueveryday.book.MainActivity_B;
 import com.wangpeng.ncueveryday.course.MainActivity_C;
 import com.wangpeng.ncueveryday.news.FragmentCollege;
@@ -62,11 +61,6 @@ public class MainActivity extends FragmentActivity {
 
 		setContentView(R.layout.activity_main);
 
-		// 声明ImageLoader单例
-		ImageLoaderConfiguration imgloadConfig = ImageLoaderConfiguration
-				.createDefault(this);
-		ImageLoader.getInstance().init(imgloadConfig);
-
 		mPager = (ViewPager) findViewById(R.id.viewpager);
 
 		// 向Pager中添加页面
@@ -83,6 +77,7 @@ public class MainActivity extends FragmentActivity {
 		// 设置侧滑菜单
 		setSlideMenu();
 
+		Logger.init();
 	}
 
 	public void SetmAdapter() {

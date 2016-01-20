@@ -32,7 +32,7 @@ public class FragmentCollege extends mFragmentBase {
 
 	private PullToRefreshListView newslistview; // 新闻列表
 	private ArrayList<NewsItem> newslist; // 新闻列表数据
-	private myAdapter adapter = null;
+	private NewsAdapter adapter = null;
 	private String FILENAME = "list1.json";
 
 	@Override
@@ -60,7 +60,7 @@ public class FragmentCollege extends mFragmentBase {
 		// json转化为list
 		newslist = Json2list(json);
 		// 呈现数据到UI布局
-		adapter = new myAdapter(this.getActivity(), getlist(newslist));
+		adapter = new NewsAdapter(this.getActivity(), getlist(newslist));
 		newslistview.setAdapter(adapter);
 
 		// 文章列表项点击事件

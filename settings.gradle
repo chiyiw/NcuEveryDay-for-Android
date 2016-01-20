@@ -1,4 +1,3 @@
 include ':slidingMenu'
-include ':imageLoaderlibrary'
-include ':library'
+include ':pullToRefresh'
 include ':ncuEveryDay'
