@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.orhanobut.logger.Logger;
@@ -39,6 +40,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import cn.bmob.v3.Bmob;
+import cn.bmob.v3.listener.BmobUpdateListener;
+import cn.bmob.v3.update.BmobUpdateAgent;
+import cn.bmob.v3.update.UpdateResponse;
+import cn.bmob.v3.update.UpdateStatus;
 
 // 继承自FragmentActivity
 public class MainActivity extends FragmentActivity {
@@ -74,6 +81,13 @@ public class MainActivity extends FragmentActivity {
         // setFontStyle();
         // 设置侧滑菜单
         setSlideMenu();
+
+        // 初始化 Bmob SDK
+        // 使用时请将第二个参数Application ID替换成你在Bmob服务器端创建的Application ID
+        Bmob.initialize(this, "c68d944e876066924c318ee45ee65ff4");
+
+        // 检查更新
+        BmobUpdateAgent.update(this);
 
         Logger.init();
     }
@@ -168,7 +182,17 @@ public class MainActivity extends FragmentActivity {
                                                                     @Override
                                                                     public void onClick(View v) {
                                                                         // 异步调用更新接口
-                                                                        Log.d("未完成", "未实现检查更新！");
+                                                                        BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
+
+                                                                            @Override
+                                                                            public void onUpdateReturned(int updateStatus, UpdateResponse updateInfo) {
+                                                                                //根据updateStatus来判断更新是否成功
+                                                                                if (updateStatus == UpdateStatus.No){
+                                                                                    Toast.makeText(MainActivity.this,"已经是最新版本！",Toast.LENGTH_SHORT).show();
+                                                                                }
+                                                                            }
+                                                                        });
+                                                                        BmobUpdateAgent.forceUpdate(MainActivity.this);
                                                                         dialog.dismiss();
                                                                     }
                                                                 });

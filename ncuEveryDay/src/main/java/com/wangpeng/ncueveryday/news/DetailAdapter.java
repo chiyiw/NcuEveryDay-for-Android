@@ -47,11 +47,16 @@ public class DetailAdapter extends ArrayAdapter<Map<String, String>> {
 
         Map<String, String> datas = getItem(position);
 
-        // 向布局设置数据
-        holder.viDetailText.setText(datas.get("text"));
 
         if (datas.get("text").equals("")) {
             holder.viDetailText.setVisibility(View.GONE);
+        } else {
+            // 向布局设置数据
+            if (!datas.get("text").startsWith("\u3000\u3000")) {
+                holder.viDetailText.setText("\u3000\u3000" + datas.get("text"));
+            }else {
+                holder.viDetailText.setText(datas.get("text"));
+            }
         }
 
         // 获取设备窗口显示

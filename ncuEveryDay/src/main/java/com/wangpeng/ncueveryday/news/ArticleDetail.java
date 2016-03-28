@@ -70,13 +70,13 @@ public class ArticleDetail extends Activity {
         // 获取文章id
         String articleid = bundle.getString("articleid");
         // 获取文章发布时间
-        String createtime = bundle.getString("createtime");
+        //String createtime = bundle.getString("createtime");
 
         // 文章详情地址
         // 通过获取html本地解析
 //		String url = "http://www.ncuhome.cn/NewIndex2013/Article_detail.aspx?SubjectId=" + articleid;
         // 使用服务器解析返回json
-        String url = "http://ncueveryday.sinaapp.com/index.php?article_id=" + articleid;
+        String url = "http://cloud.bmob.cn/f791b9071ca67fee/getNewsDetail?article_id=" + articleid;
 
         System.out.println(articleid);
 
@@ -130,7 +130,7 @@ public class ArticleDetail extends Activity {
 
 //        System.out.println(str);
         Logger.json(str);
-        Logger.d("Json", str);
+        //Logger.d("Json", str);
 
         ArrayList<Map<String, String>> list = new ArrayList<Map<String, String>>();
 

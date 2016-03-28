@@ -4,7 +4,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.0.0-alpha5'
+        classpath 'com.android.tools.build:gradle:2.0.0-beta6'
     }
 }
 
@@ -13,5 +13,7 @@ allprojects {
         jcenter()
         // Logger 库的依赖
         maven { url "https://jitpack.io"}
+        // bmob 的依赖
+        maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
     }
 }
