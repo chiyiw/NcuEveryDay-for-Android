@@ -144,7 +144,7 @@ public class CitySettingOnClickListener implements OnClickListener {
 				// 隐藏对话框
 				dialog.dismiss();
 				// 根据城市和ID更新UI数据
-				((MainActivity_W) context).ShowUI(AreaId, City);
+				((ActivityWeather) context).ShowUI(AreaId, City);
 				// 将本次选择的城市存入本地，作为下次启动默认城市
 				Editor editor = ((Activity) context).getPreferences(Activity.MODE_PRIVATE).edit();
 				editor.putString("areaid", AreaId);

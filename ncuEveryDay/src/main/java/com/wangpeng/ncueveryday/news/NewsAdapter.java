@@ -47,7 +47,7 @@ public class NewsAdapter extends ArrayAdapter<Map<String, String>> {
         Map<String, String> item = getItem(position);
         // 将数据呈现到UI控件
         holder.title.setText(item.get("newstitle"));
-        holder.content.setText(item.get("Content"));
+        //holder.content.setText(item.get("Content").substring(0,25).concat("..."));
         holder.createtime.setText(item.get("CreateTime"));
 
         String url = item.get("PicUrl");
@@ -55,7 +55,7 @@ public class NewsAdapter extends ArrayAdapter<Map<String, String>> {
                 .load(url) // 地址
                 .crossFade()
                 .centerCrop() // 居中显示
-                .override(200, 136) // 调整大小
+                .override(200, 156) // 调整大小
                 .into(holder.pic);
 
         return convertView;
@@ -64,7 +64,7 @@ public class NewsAdapter extends ArrayAdapter<Map<String, String>> {
     static class ViewHolder {
         @Bind(id.pic) ImageView pic;
         @Bind(id.title) TextView title;
-        @Bind(id.content) TextView content;
+        //@Bind(id.content) TextView content;
         @Bind(id.createtime) TextView createtime;
 
         ViewHolder(View view) {
@@ -98,6 +98,12 @@ public class NewsAdapter extends ArrayAdapter<Map<String, String>> {
             insert(object.get(i), 0);
         }
     }
+    // 添加到列表后部
+    public void AddToBack(ArrayList<Map<String, String>> object){
+        for (int i = 0; i < object.size(); i++) {
+            add(object.get(i));
+        }
+    }
 
     /**
      * 比较筛选出新添加的项目
@@ -123,16 +129,6 @@ public class NewsAdapter extends ArrayAdapter<Map<String, String>> {
             if (flag == 1) {
                 combine.add(addlist.get(i));
             }
-
-            // 当列表中不足20项时加入原来的项目
-//			int size = combine.size();
-//			if (size < 20) {
-//				for (int k = 0; k < 20 - size; k++) {
-//					if (k < origin.size()) {
-//						combine.add(origin.get(k));
-//					}
-//				}
-//			}
         }
 
         return combine;

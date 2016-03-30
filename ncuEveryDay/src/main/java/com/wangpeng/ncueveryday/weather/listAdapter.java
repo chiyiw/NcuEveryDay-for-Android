@@ -44,7 +44,7 @@ public class listAdapter extends BaseAdapter {
 		View v = inflater.inflate(R.layout.wea_weatherdays, null);
 
 		TextView textv = (TextView) v.findViewById(R.id.weatherdayTextv);
-		textv.setText(MainActivity_W.daysName.get(position));
+		textv.setText(ActivityWeather.daysName.get(position));
 		TextView textv2 = (TextView) v.findViewById(R.id.weatherdayTextv2);
 		textv2.setText(listDayData.get(position).tep);
 
@@ -56,7 +56,7 @@ public class listAdapter extends BaseAdapter {
 		if (weatherId == 53) {
 			weatherId = 32;
 		}
-		imagev.setImageResource(MainActivity_W.resIds[weatherId]);
+		imagev.setImageResource(ActivityWeather.resIds[weatherId]);
 		// 设置天气图片2
 		ImageView imagev2 = (ImageView) v
 				.findViewById(R.id.weatherdayImagev2);
@@ -64,7 +64,7 @@ public class listAdapter extends BaseAdapter {
 		if (weatherId2 == 53) {
 			weatherId2 = 32;
 		}
-		imagev2.setImageResource(MainActivity_W.resIds[weatherId2]);
+		imagev2.setImageResource(ActivityWeather.resIds[weatherId2]);
 
 		if (weatherId == weatherId2) {
 			imagev2.setVisibility(View.GONE);

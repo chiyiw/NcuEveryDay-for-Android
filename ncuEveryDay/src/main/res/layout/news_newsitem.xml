@@ -13,7 +13,7 @@
         android:background="#FFF8F8F8"
         android:paddingBottom="5dp"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:paddingRight="0dp"
         android:paddingTop="5dp" >
 
         <LinearLayout
@@ -34,37 +34,45 @@
             <!--
                 android:src="@drawable/picture" />
 			 -->
-			 
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:padding="3dp"
                 android:text="软件学院全体师生到西藏旅游云南广西西藏旅游！"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/createtime"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pic_title"
+                android:layout_margin="3dp"
+                android:text="2015/1/25  18:13:20"
+                android:textColor="#80000000"
+                android:textSize="12sp" />
+            </LinearLayout>
+
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/content"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/pic_title"
-            android:text="		软件学院消息：软件学院携手南昌大学经管学院青志协一同前往中堡小学举办圣诞特别活动与学生共度圣诞。尽管狂......"
-            android:textColor="#D0000000"
-            android:textSize="15sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/content"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/pic_title"-->
+            <!--android:text="		软件学院消息：软件学院携手南昌大学经管学院青志协一同前往中堡小学举办圣诞特别活动与学生共度圣诞。尽管狂......"-->
+            <!--android:textColor="#D0000000"-->
+            <!--android:textSize="15sp" />-->
 
-        <TextView
-            android:id="@+id/createtime"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/content"
-            android:layout_margin="3dp"
-            android:text="2015/1/25  18:13:20"
-            android:textColor="#80000000"
-            android:textSize="12sp" />
+
     </RelativeLayout>
 
 </RelativeLayout>

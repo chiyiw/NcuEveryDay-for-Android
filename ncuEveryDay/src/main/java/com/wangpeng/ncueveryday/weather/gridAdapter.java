@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.orhanobut.logger.Logger;
 import com.wangpeng.ncueveryday.R;
 
 /**
@@ -65,7 +66,7 @@ public class gridAdapter extends BaseAdapter {
 		weatherAni ani = new weatherAni();
 		ani.setDuration(1000);
 		imagev.startAnimation(ani);
-		imagev.setImageResource(MainActivity_W.resIds[weatherId]);
+		imagev.setImageResource(ActivityWeather.resIds[weatherId]);
 
 		TextView textv2 = (TextView) v.findViewById(R.id.weatheritemTextv2);
 		textv2.setText(listHourData.get(position).jb + "℃");

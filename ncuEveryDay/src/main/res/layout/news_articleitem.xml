@@ -2,34 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f8f8f8"
     android:orientation="vertical"
-    android:background="#f8f8f8" 
-    >
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp">
 
     <TextView
         android:id="@+id/vi_detail_text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:lineSpacingMultiplier="1.5"
         android:paddingBottom="0dp"
         android:paddingTop="0dp"
-        android:textSize="18sp"
-        android:lineSpacingMultiplier="1.2"
-        android:text="		软件学院消息：软件学院携手南昌大学经管学院青志协一同前往中堡小学举办圣诞特别活动与学生共度圣诞。尽管狂......"/>
-        <!--android:background="#ff0"-->
+        android:text="		软件学院消息：软件学院携手南昌大学经管学院青志协一同前往中堡小学举办圣诞特别活动与学生共度圣诞。尽管狂......"
+        android:textSize="19sp"/>
+    <!--android:background="#ff0"-->
 
     <ImageView
         android:id="@+id/vi_detail_image"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:adjustViewBounds="true"
         android:paddingBottom="1dp"
-        android:paddingTop="1dp"
-        android:adjustViewBounds="true"/>
-        <!--android:background="#0fc"/>-->
+        android:paddingTop="1dp"/>
+    <!--android:background="#0fc"/>-->
 
-    	<!-- android:src="@drawable/picture" -->
+    <!-- android:src="@drawable/picture" -->
 
 </LinearLayout>

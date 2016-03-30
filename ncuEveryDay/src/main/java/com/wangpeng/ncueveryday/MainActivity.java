@@ -11,7 +11,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -28,13 +27,13 @@ import android.widget.Toast;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.orhanobut.logger.Logger;
-import com.wangpeng.ncueveryday.book.MainActivity_B;
-import com.wangpeng.ncueveryday.course.MainActivity_C;
+import com.wangpeng.ncueveryday.book.ActivityBook;
+import com.wangpeng.ncueveryday.course.ActivityCourse;
 import com.wangpeng.ncueveryday.news.FragmentCollege;
 import com.wangpeng.ncueveryday.news.FragmentHome;
 import com.wangpeng.ncueveryday.news.FragmentSchoolWork;
-import com.wangpeng.ncueveryday.score.MainActivity_S;
-import com.wangpeng.ncueveryday.weather.MainActivity_W;
+import com.wangpeng.ncueveryday.score.ActivityScore;
+import com.wangpeng.ncueveryday.weather.ActivityWeather;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -151,24 +150,24 @@ public class MainActivity extends FragmentActivity {
                                                 Intent intent;
                                                 switch (position) {
                                                     case 0:
-                                                        intent = new Intent(MainActivity.this, MainActivity_W.class);
+                                                        intent = new Intent(MainActivity.this, ActivityWeather.class);
                                                         MainActivity.this.startActivity(intent);
                                                         break;
                                                     case 1:
-                                                        intent = new Intent(MainActivity.this, MainActivity_B.class);
+                                                        intent = new Intent(MainActivity.this, ActivityBook.class);
                                                         MainActivity.this.startActivity(intent);
                                                         break;
                                                     case 2:
-                                                        intent = new Intent(MainActivity.this, MainActivity_C.class);
+                                                        intent = new Intent(MainActivity.this, ActivityCourse.class);
                                                         MainActivity.this.startActivity(intent);
                                                         break;
                                                     case 3:
-                                                        intent = new Intent(MainActivity.this, MainActivity_S.class);
+                                                        intent = new Intent(MainActivity.this, ActivityScore.class);
                                                         MainActivity.this.startActivity(intent);
                                                         break;
                                                     case 4:
                                                         LayoutInflater flater = MainActivity.this.getLayoutInflater();
-                                                        View mview = flater.inflate(R.layout.aboutdialog, null);
+                                                        View mview = flater.inflate(R.layout.about_dialog, null);
 
                                                         final Dialog dialog = new AlertDialog.Builder(MainActivity.this)
                                                                 .setView(mview).create();
@@ -203,7 +202,7 @@ public class MainActivity extends FragmentActivity {
                                                                     @Override
                                                                     public void onClick(View v) {
                                                                         Intent intent = new Intent(MainActivity.this,
-                                                                                QAActivity.class);
+                                                                                ActivityQA.class);
                                                                         MainActivity.this.startActivity(intent);
                                                                         dialog.dismiss();
                                                                     }
@@ -249,21 +248,21 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onPageSelected(int arg0) {
                 // 设置标签文字颜色
-                tab01.setTextColor(Color.BLACK);
-                tab02.setTextColor(Color.BLACK);
-                tab03.setTextColor(Color.BLACK);
+                tab01.setTextColor(Color.WHITE);
+                tab02.setTextColor(Color.WHITE);
+                tab03.setTextColor(Color.WHITE);
 
                 switch (arg0) {
                     case 0:
-                        tab01.setTextColor(Color.parseColor("#33b5e5"));
+                        tab01.setTextColor(Color.YELLOW);
                         slidingMenu.setSlidingEnabled(true);
                         break;
                     case 1:
-                        tab02.setTextColor(Color.parseColor("#33b5e5"));
+                        tab02.setTextColor(Color.YELLOW);
                         slidingMenu.setSlidingEnabled(false);
                         break;
                     case 2:
-                        tab03.setTextColor(Color.parseColor("#33b5e5"));
+                        tab03.setTextColor(Color.YELLOW);
                         slidingMenu.setSlidingEnabled(false);
                         break;
                 }
@@ -289,9 +288,9 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 mPager.setCurrentItem(0, true);
-                tab01.setTextColor(Color.parseColor("#33b5e5"));
-                tab02.setTextColor(Color.BLACK);
-                tab03.setTextColor(Color.BLACK);
+                tab01.setTextColor(Color.YELLOW);
+                tab02.setTextColor(Color.WHITE);
+                tab03.setTextColor(Color.WHITE);
             }
         });
         tab02.setOnClickListener(new OnClickListener() {
@@ -299,9 +298,9 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 mPager.setCurrentItem(1, true);
-                tab01.setTextColor(Color.BLACK);
-                tab02.setTextColor(Color.parseColor("#33b5e5"));
-                tab03.setTextColor(Color.BLACK);
+                tab01.setTextColor(Color.WHITE);
+                tab02.setTextColor(Color.YELLOW);
+                tab03.setTextColor(Color.WHITE);
             }
         });
         tab03.setOnClickListener(new OnClickListener() {
@@ -309,9 +308,9 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 mPager.setCurrentItem(2, true);
-                tab01.setTextColor(Color.BLACK);
-                tab02.setTextColor(Color.BLACK);
-                tab03.setTextColor(Color.parseColor("#33b5e5"));
+                tab01.setTextColor(Color.WHITE);
+                tab02.setTextColor(Color.WHITE);
+                tab03.setTextColor(Color.YELLOW);
             }
         });
     }

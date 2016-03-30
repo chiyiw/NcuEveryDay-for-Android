@@ -45,7 +45,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MainActivity_W extends Activity {
+public class ActivityWeather extends Activity {
 
 	private GridView gridView;
 	private ArrayList<WeatherHourInfo> listHourData;
@@ -99,20 +99,20 @@ public class MainActivity_W extends Activity {
 	public void Test() {
 		String result = getAssetsData("daysdata.json");
 		listDayData = Json2list_day_juhe(result);
-		listAdapter d_adapter = new listAdapter(MainActivity_W.this,
+		listAdapter d_adapter = new listAdapter(ActivityWeather.this,
 				listDayData);
 		listView.setAdapter(d_adapter);
 
 		listHourData = Json2list_hour(getAssetsData("101240101.html"));
 		// 设置GridView的项数和每项宽度属性属性
 		SetGridParams(listHourData.size(), 80);
-		gridAdapter h_adapter = new gridAdapter(MainActivity_W.this,
+		gridAdapter h_adapter = new gridAdapter(ActivityWeather.this,
 				listHourData);
 		gridView.setAdapter(h_adapter);
 	}
 
 	public void ShowUI(String AreaId, String CityName) {
-		GetHoursData("http://m.weather.com.cn//mpub/hours/" + AreaId + ".html");
+		GetHoursData("http://cloud.bmob.cn/f791b9071ca67fee/getHourWeather");
 		GetDaysData_juhe(CityName);
 	}
 
@@ -160,13 +160,13 @@ public class MainActivity_W extends Activity {
 							// 将获取的数据存入到文件中，离线显示
 							writeToFile("daysdata.json", result);
 
-							System.out.println("未来几天数据获取成功:" + result);
+							//System.out.println("未来几天数据获取成功:" + result);
 
 							// 解析数据并呈现在列表中
 							listDayData = Json2list_day_juhe(result);
 
 							listAdapter d_adapter = new listAdapter(
-									MainActivity_W.this, listDayData);
+									ActivityWeather.this, listDayData);
 							listView.setAdapter(d_adapter);
 						} else {
 							// 获取失败，提示失败原因
@@ -176,7 +176,7 @@ public class MainActivity_W extends Activity {
 							if (!temp.equals("")) {
 								// 如果加载失败，则载入本地的数据
 								listAdapter d_adapter = new listAdapter(
-										MainActivity_W.this, listDayData);
+										ActivityWeather.this, listDayData);
 								listView.setAdapter(d_adapter);
 							}
 						}
@@ -194,8 +194,6 @@ public class MainActivity_W extends Activity {
 			@Override
 			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
 					Throwable arg3) {
-				// called when response HTTP status is "4XX" (eg. 401, 403, 404)
-				System.out.println("failure");
 
 				String str = readFromFile("hoursdata.json");
 				if (!str.equals("")) {
@@ -204,7 +202,7 @@ public class MainActivity_W extends Activity {
 					// 设置GridView的项数和每项宽度属性属性
 					SetGridParams(listHourData.size(), 80);
 					gridAdapter h_adapter = new gridAdapter(
-							MainActivity_W.this, listHourData);
+							ActivityWeather.this, listHourData);
 					gridView.setAdapter(h_adapter);
 				}
 			}
@@ -212,20 +210,15 @@ public class MainActivity_W extends Activity {
 			@Override
 			public void onRetry(int retryNo) {
 				super.onRetry(retryNo);
-				// called when request is retried
-				System.out.println("retry");
 			}
 
 			@Override
 			public void onStart() {
 				super.onStart();
-				// called before request is started
-				System.out.println("start");
 			}
 
 			@Override
 			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-				System.out.println("success");
 
 				// 解析获取到的数据并呈现在横向列表GridView中
 				String str = new String(arg2);
@@ -236,7 +229,7 @@ public class MainActivity_W extends Activity {
 
 				// 设置GridView的项数和每项宽度属性属性
 				SetGridParams(listHourData.size(), 80);
-				gridAdapter h_adapter = new gridAdapter(MainActivity_W.this,
+				gridAdapter h_adapter = new gridAdapter(ActivityWeather.this,
 						listHourData);
 				gridView.setAdapter(h_adapter);
 			}

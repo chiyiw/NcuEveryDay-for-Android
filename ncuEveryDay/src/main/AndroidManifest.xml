@@ -5,7 +5,7 @@
           android:versionName="1.1">
 
     <uses-sdk
-        android:minSdkVersion="13"
+        android:minSdkVersion="14"
         android:targetSdkVersion="14"/>
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -29,7 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.wangpeng.ncueveryday.news.ArticleDetail">
+        <activity android:name=".news.ActivityArticleDetail">
         </activity>
 
         <!-- 聚合 -->
@@ -38,27 +38,27 @@
             android:value="JHe65f8d09d76f274e1bcbb135bb66d0c8"/>
 
         <activity
-            android:name="com.wangpeng.ncueveryday.weather.MainActivity_W"
+            android:name=".weather.ActivityWeather"
             android:icon="@drawable/minilogo"
             android:label="天气"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name="com.wangpeng.ncueveryday.course.MainActivity_C"
+            android:name=".course.ActivityCourse"
             android:icon="@drawable/minilogo"
             android:label="课表"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name="com.wangpeng.ncueveryday.book.MainActivity_B"
+            android:name=".book.ActivityBook"
             android:icon="@drawable/minilogo"
             android:label="图书馆"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name="com.wangpeng.ncueveryday.score.MainActivity_S"
+            android:name=".score.ActivityScore"
             android:icon="@drawable/minilogo"
             android:label="成绩单"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name="com.wangpeng.ncueveryday.QAActivity"
+            android:name=".ActivityQA"
             android:icon="@drawable/minilogo"
             android:label="Q&amp;A"
             android:theme="@style/AppTheme"/>
@@ -66,7 +66,7 @@
         <!--bmob自动更新-->
         <activity
             android:name="cn.bmob.v3.update.UpdateDialogActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
         </activity>
     </application>
 

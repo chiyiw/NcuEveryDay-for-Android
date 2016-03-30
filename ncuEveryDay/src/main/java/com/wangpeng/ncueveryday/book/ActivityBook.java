@@ -1,6 +1,4 @@
-package com.wangpeng.ncueveryday.score;
-
-import com.wangpeng.ncueveryday.R;
+package com.wangpeng.ncueveryday.book;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -13,7 +11,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class MainActivity_S extends Activity {
+import com.wangpeng.ncueveryday.R;
+
+public class ActivityBook extends Activity {
 	private WebView webv;
 
 	@SuppressLint("SetJavaScriptEnabled")
@@ -23,10 +23,11 @@ public class MainActivity_S extends Activity {
 
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		setContentView(R.layout.score_activity_main);
+		setContentView(R.layout.book_activity_main);
 
-		webv = (WebView) findViewById(R.id.scoreWebv);
-		webv.loadUrl("http://passport.ncuhome.cn/NewXZZX/scores/login.aspx");
+		webv = (WebView) findViewById(R.id.bookWebv);
+		webv.loadUrl("http://waplib.ncu.edu.cn/index.jspx?xc=6");
+		// webv.loadUrl("http://passport.ncuhome.cn/NewXZZX/scores/login.aspx");
 
 		WebSettings settings = webv.getSettings();
 		settings.setJavaScriptEnabled(true);
@@ -59,7 +60,7 @@ public class MainActivity_S extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.score_main, menu);
+		getMenuInflater().inflate(R.menu.book_main, menu);
 		return true;
 	}
 
@@ -70,7 +71,6 @@ public class MainActivity_S extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_return) {
-			
 			this.finish();
 			return true;
 		}

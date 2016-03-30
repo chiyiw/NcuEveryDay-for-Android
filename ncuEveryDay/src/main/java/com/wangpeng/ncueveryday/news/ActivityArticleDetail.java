@@ -2,20 +2,13 @@ package com.wangpeng.ncueveryday.news;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.orhanobut.logger.Logger;
@@ -34,7 +27,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
@@ -46,7 +38,7 @@ import java.util.regex.Pattern;
  * @author wangpeng
  */
 @SuppressLint("InflateParams")
-public class ArticleDetail extends Activity {
+public class ActivityArticleDetail extends Activity {
 
     private TextView vi_title; // 标题
     private ListView listview; // 正文段落列表
@@ -109,7 +101,7 @@ public class ArticleDetail extends Activity {
                 // System.out.println(new String(arg2));
                 listdatas = getListDatas(new String(arg2));
 //				listdatas = getListDatas_local(new String(arg2));
-                DetailAdapter adapter = new DetailAdapter(ArticleDetail.this, listdatas);
+                DetailAdapter adapter = new DetailAdapter(ActivityArticleDetail.this, listdatas);
                 listview.setAdapter(adapter);
 
                 progressbar.setVisibility(View.GONE);
@@ -129,7 +121,7 @@ public class ArticleDetail extends Activity {
         //str = "[{\"imgUri\":\"\",\"content\":\"化学学院消息：12月13日下午2点，化学学院理研会于18栋1楼东会议室召开会议，集中学习十八届四中全会精神，各班级代表参与了本次会议。\"},{\"imgUri\":\"\",\"content\":\"“天下之事，不难于立法，而难于法之必行”，理研会负责人唐湘兰借助这一句话，与参加会议的同学们学习了“法”的实施与立法相比存在明显的不足，而法治是建设中国特色社会主义的必经之路，厉行法治才能提升国家治理体系，使治理能力现代化，有利于党执政兴国，是国家长治久安的坚强后盾，会议中，理研会负责人就应该成为一种新常态的依法治国进行多方面阐述，并延伸到自身，说道:“依法治国，其实是与我们自身息息相关的，我们要时刻对自己的行为举止内省，对法律严格恪守。”\"}]";
 
 //        System.out.println(str);
-        Logger.json(str);
+        //Logger.json(str);
         //Logger.d("Json", str);
 
         ArrayList<Map<String, String>> list = new ArrayList<Map<String, String>>();

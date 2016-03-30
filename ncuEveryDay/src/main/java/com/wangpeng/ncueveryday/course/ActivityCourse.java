@@ -9,7 +9,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
@@ -37,11 +36,8 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.wangpeng.ncueveryday.R;
-import com.wangpeng.ncueveryday.weather.CityInfo;
-import com.wangpeng.ncueveryday.weather.CityListAdapter;
-import com.wangpeng.ncueveryday.weather.MainActivity_W;
 
-public class MainActivity_C extends Activity {
+public class ActivityCourse extends Activity {
 
 	private TextView class_nameTv; // 班级名称
 	private LinearLayout ll1; // 周一
@@ -123,15 +119,15 @@ public class MainActivity_C extends Activity {
 			int i = 0;
 
 			c.isAfterLast();
-			System.out.println("result:"
-					+ CutCourseString(c.getString(c.getColumnIndex("mon"))));
+//			System.out.println("result:"
+//					+ CutCourseString(c.getString(c.getColumnIndex("mon"))));
 			String s = CutCourseString(c.getString(c.getColumnIndex("mon")));
 
 			if (s.length() > 0) {
 				int start = s.lastIndexOf(")周");
 				int end = s.lastIndexOf("-");
 
-				System.out.println(s.substring(start + 2, end));
+//				System.out.println(s.substring(start + 2, end));
 			}
 
 			while (!c.isAfterLast()) {
@@ -196,7 +192,7 @@ public class MainActivity_C extends Activity {
 		tv.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Dialog dialog = new AlertDialog.Builder(MainActivity_C.this)
+				Dialog dialog = new AlertDialog.Builder(ActivityCourse.this)
 						.create();
 			}
 		});
@@ -275,7 +271,7 @@ public class MainActivity_C extends Activity {
 					String c_name = s.toString().trim();
 					if (!c_name.equals("")) {
 						// 数据库中模糊查找关键词
-						SQLiteDatabase db = openDatabase(MainActivity_C.this);
+						SQLiteDatabase db = openDatabase(ActivityCourse.this);
 						Cursor c = db.rawQuery("select * from indx where name like ?",
 								new String[] { "%" + c_name + "%" });
 
@@ -306,7 +302,7 @@ public class MainActivity_C extends Activity {
 						}
 					}
 					// 将所有结果呈现到列表中
-					classAdapter adapter = new classAdapter(MainActivity_C.this, list_classes);
+					classAdapter adapter = new classAdapter(ActivityCourse.this, list_classes);
 					lv.setAdapter(adapter);
 				}
 			});
@@ -333,7 +329,7 @@ public class MainActivity_C extends Activity {
 					dialog.dismiss();
 					// 根据城市和ID更新UI数据
 					// 将本次选择的城市存入本地，作为下次启动默认城市
-					Editor editor = MainActivity_C.this.getPreferences(
+					Editor editor = ActivityCourse.this.getPreferences(
 							Activity.MODE_PRIVATE).edit();
 					editor.putInt("class_index", ind);
 					editor.putString("class_name", cla_name);

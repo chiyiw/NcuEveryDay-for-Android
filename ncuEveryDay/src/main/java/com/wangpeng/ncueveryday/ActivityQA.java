@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class QAActivity extends Activity {
+public class ActivityQA extends Activity {
 
 	private ListView lv;
 	private ArrayList<feedback> feedbackdata;
@@ -87,15 +87,15 @@ public class QAActivity extends Activity {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			
-			LinearLayout lo = new LinearLayout(QAActivity.this);
+			LinearLayout lo = new LinearLayout(ActivityQA.this);
 			lo.setOrientation(LinearLayout.VERTICAL);
 			
-			TextView tv_title = new TextView(QAActivity.this);
+			TextView tv_title = new TextView(ActivityQA.this);
 			tv_title.setText(""+feedbackdata.get(position).title);
 			tv_title.setTextSize(18);
 			tv_title.setTextColor(colors[(int) (Math.random() * 100 % 9)]);
 			
-			TextView tv_content = new TextView(QAActivity.this);
+			TextView tv_content = new TextView(ActivityQA.this);
 			tv_content.setText("\n    "+feedbackdata.get(position).content+"\n");
 			tv_content.setTextSize(15);
 			tv_content.setTextColor(colors[(int) (Math.random() * 100 % 9)]);
