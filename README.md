@@ -2,7 +2,7 @@
 ---
 南昌大学第三方 Android 客户端
 
-<img src="screenshots/news.png" width="300px"> <img src="screenshots/article.png" width="300px"> <img src="screenshots/slidingMenu.png" width="300px">
+<img src="screenshots/news.png" width="280px"> <img src="screenshots/article.png" width="280px"> <img src="screenshots/slidingMenu.png" width="280px">
 
 新闻资源来自 @[南昌大学家园网](http://www.ncuhome.cn)
 
