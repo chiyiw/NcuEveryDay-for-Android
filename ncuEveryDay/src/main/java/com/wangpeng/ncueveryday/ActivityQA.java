@@ -5,10 +5,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.util.Linkify;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -89,16 +93,17 @@ public class ActivityQA extends Activity {
 			
 			LinearLayout lo = new LinearLayout(ActivityQA.this);
 			lo.setOrientation(LinearLayout.VERTICAL);
-			
+
 			TextView tv_title = new TextView(ActivityQA.this);
 			tv_title.setText(""+feedbackdata.get(position).title);
 			tv_title.setTextSize(18);
 			tv_title.setTextColor(colors[(int) (Math.random() * 100 % 9)]);
 			
 			TextView tv_content = new TextView(ActivityQA.this);
-			tv_content.setText("\n    "+feedbackdata.get(position).content+"\n");
+			tv_content.setText(ToDBC("\n\u3000\u3000"+feedbackdata.get(position).content+"\n"));
 			tv_content.setTextSize(15);
-			tv_content.setTextColor(colors[(int) (Math.random() * 100 % 9)]);
+			tv_content.setAutoLinkMask(Linkify.ALL);
+			//tv_content.setTextColor(colors[(int) (Math.random() * 100 % 9)]);
 			
 			lo.addView(tv_title);
 			lo.addView(tv_content);
@@ -135,4 +140,15 @@ public class ActivityQA extends Activity {
 		return data;
 	}
 
+	public String ToDBC(String input) {
+		char[] c = input.toCharArray();
+		for (int i = 0; i< c.length; i++) {
+			if (c[i] == 12288) {
+				c[i] = (char) 32;
+				continue;
+			}if (c[i]> 65280&& c[i]< 65375)
+				c[i] = (char) (c[i] - 65248);
+		}
+		return new String(c);
+	}
 }

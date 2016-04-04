@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="#f8f8f8"
     android:orientation="vertical"
     android:paddingLeft="18dp"
@@ -14,7 +15,7 @@
         android:lineSpacingMultiplier="1.5"
         android:paddingBottom="0dp"
         android:paddingTop="0dp"
-        android:text="		软件学院消息：软件学院携手南昌大学经管学院青志协一同前往中堡小学举办圣诞特别活动与学生共度圣诞。尽管狂......"
+        tools:text="		软件学院消息：软件学院携手南昌大学经管学院青志协一同前往中堡小学举办圣诞特别活动与学生共度圣诞。尽管狂......"
         android:textSize="19sp"/>
     <!--android:background="#ff0"-->
 

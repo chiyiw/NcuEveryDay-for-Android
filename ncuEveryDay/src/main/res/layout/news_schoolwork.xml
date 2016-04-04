@@ -7,13 +7,13 @@
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/newslistview"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="#FFFFFF"
         android:divider="#FFF"
         android:dividerHeight="0dp"
         android:scrollbarStyle="outsideOverlay" >
     </com.handmark.pulltorefresh.library.PullToRefreshListView>
 
-    <include layout="@layout/news_newsitem" />
+    <!--<include layout="@layout/news_newsitem" />-->
 
 </LinearLayout>

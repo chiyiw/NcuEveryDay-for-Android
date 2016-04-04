@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.wangpeng.ncueveryday"
-          xmlns:android="http://schemas.android.com/apk/res/android"
-          android:versionCode="2"
-          android:versionName="1.1">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="1"
+    android:versionName="1.0">
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -22,13 +22,18 @@
         android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name">
+        </activity>
+
+        <activity android:name=".ActivitySplash"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity android:name=".news.ActivityArticleDetail">
         </activity>
 
@@ -41,6 +46,7 @@
             android:name=".weather.ActivityWeather"
             android:icon="@drawable/minilogo"
             android:label="天气"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"/>
         <activity
             android:name=".course.ActivityCourse"
@@ -54,6 +60,12 @@
             android:theme="@style/AppTheme"/>
         <activity
             android:name=".score.ActivityScore"
+            android:icon="@drawable/minilogo"
+            android:screenOrientation="portrait"
+            android:label="成绩单"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".score.ActivityScoreResult"
             android:icon="@drawable/minilogo"
             android:label="成绩单"
             android:theme="@style/AppTheme"/>
